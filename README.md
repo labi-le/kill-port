@@ -1,9 +1,7 @@
 # kill-port
 Release the port that was occupied by the application
 
-```
-
-## Examples
+### Examples
 
 Kill process running on port 80 (HTTP)
 ```shell
