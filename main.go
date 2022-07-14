@@ -31,10 +31,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	if PortIsUsed(Proto, Port) == true {
-		FreePort(Proto, Port)
-	} else {
-		PortNotUsed()
+	switch Proto {
+	case "tcp", "tcp4", "tcp6", "unix", "unixpacket":
+		if PortIsUsed(Proto, Port) {
+			FreePort(Proto, Port)
+		} else {
+			PortNotUsed()
+		}
+		break
+	default:
+		println("Please specify correct protocol")
+		os.Exit(1)
 	}
 
 }
